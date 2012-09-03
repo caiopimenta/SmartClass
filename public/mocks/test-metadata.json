@@ -1,0 +1,8 @@
+{
+	"id":"1",
+	"embed" : "<script src='http://player.teste.sambatech.com.br/current_desenv/samba-player.js?ep=web4-7091&ph=973120db151b9742a6b66d4b2ae0618a&m=db572470cea59fdc5799066359fd95d3&playerWidth=640&playerHeight=360></script>",
+	"title" : "Aula de exemplo",
+	"description" : "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.",
+	"teacher" : "Daniel Mariz",
+	"duration": "50"
+}
