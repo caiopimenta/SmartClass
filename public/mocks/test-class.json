@@ -36,6 +36,8 @@
 		"time": "60000",
 		"type": "image",
 		"content": {
+			"title": "Imagem de exemplo",
+			"description": "descrição exemplo da imagem",
 			"url": "https://www.google.com.br/images/srpr/logo3w.png"
 		}
 	
