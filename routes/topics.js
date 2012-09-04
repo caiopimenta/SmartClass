@@ -4,10 +4,7 @@
  */
 
 module.exports.topics = function(req, res){
-	var json = {
-		response: "ok",
-		class: req.params.class
-	};
+	var json = require('../public/mocks/test-topics.json');
 
 	res.json(json);
 };

@@ -16,12 +16,13 @@
       }
     </style>
     <link href="stylesheets/libs/bootstrap/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+    <script data-main="javascripts/main.js" type='text/javascript' src="javascripts/libs/requirejs/require.js"></script>
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="../assets/ico/favicon.ico">
   </head>
@@ -48,85 +49,78 @@
       </div>
     </div>
 
-    <div id="main" class="container">
-      <div class="row">
-        <aside id="box-metadata" class="span4">
-          <h2>Aula de exemplo</h2>
-          <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.</p>
-        </aside>
-        <section id="box-video" class="span8">
-          <script src="http://player.teste.sambatech.com.br/current_desenv/samba-player.js?ep=web4-7091&ph=973120db151b9742a6b66d4b2ae0618a&m=db572470cea59fdc5799066359fd95d3&playerWidth=770&playerHeight=480"></script>
-        </section>
-        <article class="span8 offset4 text">
-            <data>80min</data>
-            <h3>Título hispter</h3><p>Squid viral mollit put a bird on it, accusamus ennui helvetica fixie <a href='http://www.polaroid.com' target='_blank'>polaroid.</a></p><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Sed sit amet ante non ipsum facilisis pulvinar.</li><li>Vivamus ac lacus id nisi ultrices porta in non nibh.</li><li>Fusce venenatis odio eget mauris fermentum nec sollicitudin neque fermentum.</li></ul>
-        </article>
-        <article class="span8 offset4 question">
-            <data>60min</data>
-            <h3>Quais as cores da bandeira do cruzeiro?</h3>
-            <label class="radio">
-              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-              verde e amarelo
-            </label>
-            <label class="radio">
-              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-              azul e preto
-            </label>
-            <label class="radio">
-              <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-              preto e branco
-            </label>
-            <label class="radio">
-              <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-              azul e branco
-            </label>
-            <label class="radio">
-              <input type="radio" name="optionsRadios" id="optionsRadios5" value="option5">
-              nenhuma das opções
-            </label>
-        </article>
-        <article class="span8 offset4 image">
-            <data>40min</data>
-            <h3>Exemplo de imagem</h3>
-            <figure>
-              <img src="https://www.google.com.br/images/srpr/logo3w.png">
-              <figcaption>descrição exemplo da imagem</figcaption>
-            </figure>
-        </article>
-        <article class="span8 offset4 question">
-            <data>20min</data>
-            <h3>Quais as cores da bandeira do cruzeiro?</h3>
-            <label class="checkbox">
-              <input type="checkbox" name="optionsCheckbox" id="optionsCheckbox1" value="option1" checked>
-              verde e amarelo
-            </label>
-            <label class="checkbox">
-              <input type="checkbox" name="optionsCheckbox" id="optionsCheckbox2" value="option2">
-              azul e preto
-            </label>
-            <label class="checkbox">
-              <input type="checkbox" name="optionsCheckbox" id="optionsCheckbox3" value="option3">
-              preto e branco
-            </label>
-            <label class="checkbox">
-              <input type="checkbox" name="optionsCheckbox" id="optionsCheckbox4" value="option4">
-              azul 
-            </label>
-            <label class="checkbox">
-              <input type="checkbox" name="optionsCheckbox" id="optionsCheckbox5" value="option5">
-              branco
-            </label>
-        </article>
+    <div class="container">
+      <div class="warning-message hidden">
+        Isto está demorando mais do que deveria, é embaraçoso. Vamos lá, <a
+          href="#">tente novamente</a>!
+      </div>
+      <div class="error-message hidden">
+        Woah woah! Desculpe-nos mas há algo de errado com o nosso serviço. Por
+        favor, <a href="#">tente novamente</a> em alguns minutos.
+      </div>
+      <div id="service-down" class="hidden"></div>
+      <div id="main-loader" class="box-loader">
+        <img src="../images/ajax-loader.gif">
+      </div>
+      <div id="main" class="row">  
 
       </div>
     </div> <!-- /container -->
 
     <script type="text/template" id="template-class">
-
+        <aside id="box-metadata" class="span4">
+          <h2>{{title}}</h2>
+          <p>{{description}}</p>
+        </aside>
+        <section id="box-video" class="span8">
+          {{embed}}
+        </section>
     </script>
-    <script type="text/template" id="template-timeline">
-
+    <script type="text/template" id="template-timeline-text">
+        <article class="span8 offset4 text">
+            <data>{{time}}</data>
+            {{content.html}}
+        </article>
     </script>
-
+    <script type="text/template" id="template-timeline-image">
+        <article class="span8 offset4 image">
+            <data>{{time}}</data>
+            <h3>{{content.title}}</h3>
+            <figure>
+              <img src="{{content.url}}">
+              <figcaption>{{content.description}}</figcaption>
+            </figure>
+        </article>
+    </script>
+    <script type="text/template" id="template-timeline-check">
+        <article class="span8 offset4 question">
+            <data>{{time}}min</data>
+            <h3>{{content.question}}</h3>
+            <form>
+              {[_.each(content.answers, function(value, key){]}
+              <label class="checkbox">
+                <input type="checkbox" name="optionsCheckbox+{{key}}" id="{{key+value}}" value="key" >
+                {{key}}
+              </label>
+              {[});]}
+              <button type="submit" class="btn">Responder</button>
+            </form>
+        </article>
+    </script>
+    <script type="text/template" id="template-timeline-radio">
+        <article class="span8 offset4 question">
+            <data>{{time}}min</data>
+            <h3>{{content.question}}</h3>
+            <form>
+              {[_.each(content.answers, function(value, key){]}
+              <label class="radio">
+                <input type="radio" name="optionsRadios+{{key}}" id="{{key+value}}" value="key" >
+                {{key}}
+              </label>
+              {[});]}
+              <button type="submit" class="btn">Responder</button>
+            </form>
+        </article>
+    </script>
   </body>
 </html>

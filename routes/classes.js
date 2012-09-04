@@ -4,10 +4,7 @@
  */
 
 module.exports.classes = function(req, res){
-	var json = {
-		response: "ok",
-		id: req.params.id
-	};
+	var json = require('../public/mocks/test-class.json');
 
 	res.json(json);
 };
