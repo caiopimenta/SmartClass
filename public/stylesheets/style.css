@@ -10,3 +10,5 @@ body {
 	left: 50%;
 	margin: -12px 0 0 -12px;
 }
+
+.topic {box-sizing: border-box;}

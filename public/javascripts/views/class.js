@@ -18,7 +18,8 @@ define(['jquery',
             },
 
             events: {
-                'click .bt-answer'        :   'answerValidation',
+                'click .bt-answer'          :   'answerValidation',
+                'click .bt-continue'        :   'nextStep',
             },
 
             render: function() {
@@ -28,6 +29,8 @@ define(['jquery',
                 self.template = _.template($("#template-timeline-" + type).html());              
                 self.model.set('time', self.getTimer(self.model.get('time')));
                 $(this.el).html(self.template(self.model.toJSON()));
+
+                if(type == "radio" || type == "check") window.playerModel.pause();
 
                 return this;
             },
@@ -41,13 +44,22 @@ define(['jquery',
                 var validationAnswers = _.isEqual(userAnswers, correctAnswers); //compara as respostas do usuário com as corretas
                 
                 if(validationAnswers){ 
-                    //$(this.el).append("")
+                    $(this.el).append("")
                     $(this.el).removeClass('alert alert-error').addClass('alert alert-success');
+                    $('.bt-answer', this.el).addClass('hidden');
+                    $('.bt-continue', this.el).removeClass('hidden');
+                    $('input', this.el).addClass('uneditable-input').attr({'disabled':'disabled'});
+                    window.playerModel.play();
                 }else{
                     $(this.el).removeClass('alert alert-success').addClass('alert alert-error');
                 }
                 
 
+            },
+
+            nextStep: function(){
+
+                console.info("next step");
             },
 
             getTimer: function(value){
@@ -140,8 +152,6 @@ define(['jquery',
                 var self = this;
                 var tView = new TopicView({model:self.topicsCollection.models[key]});
                 $("#box-metadata").after(tView.render().el);
-
-
             },
 
             embedPlayer: function(){
