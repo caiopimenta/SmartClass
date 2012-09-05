@@ -3,18 +3,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Smart Class</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="stylesheets/libs/bootstrap/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
     <link href="stylesheets/libs/bootstrap/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
 
@@ -49,7 +44,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div id="main-container" class="container">
       <div class="warning-message hidden">
         Isto está demorando mais do que deveria, é embaraçoso. Vamos lá, <a
           href="#">tente novamente</a>!
@@ -62,7 +57,7 @@
       <div id="main-loader" class="box-loader">
         <img src="../images/ajax-loader.gif">
       </div>
-      <div id="main" class="row">  
+      <div id="main-content" class="row">  
 
       </div>
     </div> <!-- /container -->
@@ -72,9 +67,7 @@
           <h2>{{title}}</h2>
           <p>{{description}}</p>
         </aside>
-        <section id="box-video" class="span8">
-          {{embed}}
-        </section>
+        <section id="box-video" class="span8"></section>
     </script>
     <script type="text/template" id="template-timeline-text">
         <article class="span8 offset4 text">

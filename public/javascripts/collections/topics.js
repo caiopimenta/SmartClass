@@ -1,6 +1,6 @@
-define(['backbone', 'models/class'], function(Backbone, Class){
-	var ClassCollection = Backbone.Collection.extend({
-		model: Class,
+define(['backbone', 'models/topic'], function(Backbone, Topic){
+	var TopicsCollection = Backbone.Collection.extend({
+		model: Topic,
 		initialize: function(properties){
 			if(properties)
 				this.url = properties.url;
@@ -15,5 +15,5 @@ define(['backbone', 'models/class'], function(Backbone, Class){
 	    }
 	});
 	
-	return ClassCollection;
+	return TopicsCollection;
 });
