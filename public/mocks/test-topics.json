@@ -47,7 +47,7 @@
 		"time": "80000",
 		"type": "text",
 		"content": {
-			"html": "<h2>Título hispter</h2><p>Squid viral mollit put a bird on it, accusamus ennui helvetica fixie <a href='http://www.polaroid.com' target='_blank>polaroid.</a></p><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Sed sit amet ante non ipsum facilisis pulvinar.</li><li>Vivamus ac lacus id nisi ultrices porta in non nibh.</li><li>Fusce venenatis odio eget mauris fermentum nec sollicitudin neque fermentum.</li></ul>"
+			"html": "<h3>Título hispter</h3><p>Squid viral mollit put a bird on it, accusamus ennui helvetica fixie <a href='http://www.polaroid.com' target='_blank>polaroid.</a></p><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Sed sit amet ante non ipsum facilisis pulvinar.</li><li>Vivamus ac lacus id nisi ultrices porta in non nibh.</li><li>Fusce venenatis odio eget mauris fermentum nec sollicitudin neque fermentum.</li></ul>"
 		}
 	
 	}
