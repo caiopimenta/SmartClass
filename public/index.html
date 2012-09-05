@@ -71,13 +71,13 @@
     </script>
     <script type="text/template" id="template-timeline-text">
         <article class="span8 offset4 text">
-            <data>{{time}}</data>
+            <data>{{time / 60000}}</data>
             {{content.html}}
         </article>
     </script>
     <script type="text/template" id="template-timeline-image">
         <article class="span8 offset4 image">
-            <data>{{time}}</data>
+            <data>{{time / 60000}}</data>
             <h3>{{content.title}}</h3>
             <figure>
               <img src="{{content.url}}">
@@ -87,13 +87,13 @@
     </script>
     <script type="text/template" id="template-timeline-check">
         <article class="span8 offset4 question">
-            <data>{{time}}min</data>
+            <data>{{time / 60000}}min</data>
             <h3>{{content.question}}</h3>
             <form>
               {[_.each(content.answers, function(value, key){]}
               <label class="checkbox">
-                <input type="checkbox" name="optionsCheckbox+{{key}}" id="{{key+value}}" value="key" >
-                {{key}}
+                <input type="checkbox" name="optionsCheckbox+{{key}}" id="{{key+value}}" value="value" >
+                {{value}}
               </label>
               {[});]}
               <button type="submit" class="btn">Responder</button>
@@ -102,13 +102,13 @@
     </script>
     <script type="text/template" id="template-timeline-radio">
         <article class="span8 offset4 question">
-            <data>{{time}}min</data>
+            <data>{{time / 60000}}min</data>
             <h3>{{content.question}}</h3>
             <form>
               {[_.each(content.answers, function(value, key){]}
               <label class="radio">
-                <input type="radio" name="optionsRadios+{{key}}" id="{{key+value}}" value="key" >
-                {{key}}
+                <input type="radio" name="optionsRadios+{{value}}" id="{{key+value}}" value="value" >
+                {{value}}
               </label>
               {[});]}
               <button type="submit" class="btn">Responder</button>

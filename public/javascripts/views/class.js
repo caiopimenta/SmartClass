@@ -55,8 +55,22 @@ define(['jquery',
                 var data = self.classModel.toJSON();
 
                 $(this.el).html(self.classTemplate(data));
-                self.embedPlayer(); 
+                self.embedPlayer();
+
+                self.renderTopic(self.topicsCollection.models[4]);
                 return this;
+            },
+
+            renderTopic: function(topic){
+                var self = this;
+
+                var type = topic.get('type');
+                var template = _.template($("#template-timeline-" + type).html());
+                console.info(topic);
+                console.info($("#template-timeline-" + type).html());
+                $(this.el).after(template(topic.toJSON()));
+
+
             },
 
             embedPlayer: function(){
