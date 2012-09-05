@@ -57,17 +57,16 @@ define(['jquery',
                 $(this.el).html(self.classTemplate(data));
                 self.embedPlayer();
 
-                self.renderTopic(self.topicsCollection.models[4]);
+                self.renderTopic(self.topicsCollection.models[1]);
                 return this;
             },
 
             renderTopic: function(topic){
                 var self = this;
-
+                topic.set('time', self.getTimer(topic.get('time')));
                 var type = topic.get('type');
                 var template = _.template($("#template-timeline-" + type).html());
-                console.info(topic);
-                console.info($("#template-timeline-" + type).html());
+                
                 $(this.el).after(template(topic.toJSON()));
 
 
@@ -80,6 +79,32 @@ define(['jquery',
                 var playerEmbed = document.createElement('script');
                 playerEmbed.setAttribute('src', self.classModel.get('embed'));
                 box.appendChild(playerEmbed);
+            },
+
+            getTimer: function(value){
+                milliSecs = value;
+
+                msSecs = (1000);
+                msMins = (msSecs * 60);
+                msHours = (msMins * 60);
+                numHours = Math.floor(milliSecs/msHours);
+                numMins = Math.floor((milliSecs - (numHours * msHours)) / msMins);
+                numSecs = Math.floor((milliSecs - (numHours * msHours) - (numMins * msMins))/ msSecs);
+
+
+                if (numSecs < 10){
+                  numSecs = "0" + numSecs.toString();
+                }
+                if (numMins < 10){
+                  numMins = "0" + numMins.toString();
+                }
+                if (numHours < 10){
+                  numHours = "0" + numHours.toString();
+                }
+
+                resultString = (numHours > 0) ? numHours + ":" + numMins + ":" + numSecs : numMins + ":" + numSecs ;
+
+                return resultString;
             }
         }); 
         

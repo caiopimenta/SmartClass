@@ -71,13 +71,13 @@
     </script>
     <script type="text/template" id="template-timeline-text">
         <article class="span8 offset4 text">
-            <data>{{time / 60000}}</data>
+            <data>{{time}}</data>
             {{content.html}}
         </article>
     </script>
     <script type="text/template" id="template-timeline-image">
         <article class="span8 offset4 image">
-            <data>{{time / 60000}}</data>
+            <data>{{time}}</data>
             <h3>{{content.title}}</h3>
             <figure>
               <img src="{{content.url}}">
@@ -87,7 +87,7 @@
     </script>
     <script type="text/template" id="template-timeline-check">
         <article class="span8 offset4 question">
-            <data>{{time / 60000}}min</data>
+            <data>{{time}}</data>
             <h3>{{content.question}}</h3>
             <form>
               {[_.each(content.answers, function(value, key){]}
@@ -102,7 +102,7 @@
     </script>
     <script type="text/template" id="template-timeline-radio">
         <article class="span8 offset4 question">
-            <data>{{time / 60000}}min</data>
+            <data>{{time}}</data>
             <h3>{{content.question}}</h3>
             <form>
               {[_.each(content.answers, function(value, key){]}
