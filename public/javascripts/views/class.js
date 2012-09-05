@@ -3,7 +3,8 @@ define(['jquery',
         'collections/topics',
         'models/topic',
         'models/class',
-], function($, Backbone, TopicsCollection, TopicModel, ClassModel) {
+        'models/player',
+], function($, Backbone, TopicsCollection, TopicModel, ClassModel, PlayerModel) {
         
         var TopicView = Backbone.View.extend({
             
@@ -84,8 +85,10 @@ define(['jquery',
             initialize: function(classID) {
                _.bindAll(this, 'render');
                _.bindAll(this, 'dataSuccessCallback');
+               _.bindAll(this, 'renderTopic');
                var self = this;
 
+               window.playerModel = new PlayerModel({view: self});
 
                self.classID = classID;
 
@@ -108,8 +111,10 @@ define(['jquery',
                 $('#main-container div.box-loader').addClass('hidden');
                 // console.info(classes);
                 // console.info(topics);
-                self.render();
+                
+                self.topics = _.pluck(self.topicsCollection.toJSON(), 'time');
 
+                self.render();
             },
 
             fetchError : function(){
