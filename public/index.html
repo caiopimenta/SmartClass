@@ -63,57 +63,63 @@
     </div> <!-- /container -->
 
     <script type="text/template" id="template-class">
-        <aside id="box-metadata" class="span4">
+        <aside id="box-metadata" class="span7">
           <h2>{{title}}</h2>
+          <section id="box-video"></section>
+          <h3>Professor: {{teacher}}</h3>
           <p>{{description}}</p>
         </aside>
-        <section id="box-video" class="span8"></section>
+        
     </script>
     <script type="text/template" id="template-timeline-text">
-        <article class="span8 offset4 text">
-            <data>{{time}}</data>
+        <div class="text">
+        
+            <data class="label label-info pull-right">{{time}}</data>
             {{content.html}}
-        </article>
+        </div>
     </script>
     <script type="text/template" id="template-timeline-image">
-        <article class="span8 offset4 image">
-            <data>{{time}}</data>
+        <div class="image">
+          
+            <data class="label label-info pull-right">{{time}}</data>
             <h3>{{content.title}}</h3>
             <figure>
               <img src="{{content.url}}">
               <figcaption>{{content.description}}</figcaption>
             </figure>
-        </article>
+        </div>
     </script>
     <script type="text/template" id="template-timeline-check">
-        <article class="span8 offset4 question">
-            <data>{{time}}</data>
+        <div class="question">
+        
+            <data class="label label-info pull-right">{{time}}</data>
             <h3>{{content.question}}</h3>
-            <form>
+            <form class="form-answers">
               {[_.each(content.answers, function(value, key){]}
               <label class="checkbox">
-                <input type="checkbox" name="optionsCheckbox+{{key}}" id="{{key+value}}" value="value" >
+                <input type="checkbox" name="optionsCheckbox{{key}}" id="{{key+value}}" value="{{value}}" >
                 {{value}}
               </label>
               {[});]}
-              <button type="submit" class="btn">Responder</button>
+              <button type="button" class="btn bt-answer">Responder</button>
             </form>
-        </article>
+        </div>
     </script>
     <script type="text/template" id="template-timeline-radio">
-        <article class="span8 offset4 question">
-            <data>{{time}}</data>
+        <div class="question">
+        
+            <data class="label label-info pull-right">{{time}}</data>
             <h3>{{content.question}}</h3>
-            <form>
+            <form class="form-answers">
               {[_.each(content.answers, function(value, key){]}
               <label class="radio">
-                <input type="radio" name="optionsRadios+{{value}}" id="{{key+value}}" value="value" >
+                <input type="radio" name="optionsRadios{{value}}" id="{{key+value}}" value="{{value}}" >
                 {{value}}
               </label>
               {[});]}
-              <button type="submit" class="btn">Responder</button>
+              <button type="button" class="btn bt-answer">Responder</button>
             </form>
-        </article>
+        </div>
     </script>
   </body>
 </html>

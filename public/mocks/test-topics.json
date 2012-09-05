@@ -12,7 +12,7 @@
 				"azul e branco",
 				"nenhuma das opções"
 			],
-			"correct_answser": [3]
+			"correct_answser": ["azul e branco"]
 		}
 	},
 	{
@@ -28,7 +28,7 @@
 				"azul",
 				"branco"
 			],
-			"correct_answser": [3,4]
+			"correct_answser": ["azul","branco"]
 		}
 	},
 	{

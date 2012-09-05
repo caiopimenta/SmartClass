@@ -5,7 +5,77 @@ define(['jquery',
         'models/class',
 ], function($, Backbone, TopicsCollection, TopicModel, ClassModel) {
         
-        
+        var TopicView = Backbone.View.extend({
+            
+            tagName: "article",
+
+            className: "span5 topic alert-block",
+
+            initialize: function(params) {
+                //this.updateData(); 
+                _.bindAll(this, 'answerValidation');               
+            },
+
+            events: {
+                'click .bt-answer'        :   'answerValidation',
+            },
+
+            render: function() {
+                var self = this;
+
+                var type = self.model.get('type');
+                self.template = _.template($("#template-timeline-" + type).html());              
+                self.model.set('time', self.getTimer(self.model.get('time')));
+                $(this.el).html(self.template(self.model.toJSON()));
+
+                return this;
+            },
+            
+            answerValidation: function(e){
+                e.preventDefault();
+
+                var self = this;
+                var userAnswers = _.pluck($('.form-answers').serializeArray(), 'value'); //retorna um array contendo os valores do value dos objetos        
+                var correctAnswers = self.model.get('content').correct_answser; //recebe as respostas
+                var validationAnswers = _.isEqual(userAnswers, correctAnswers); //compara as respostas do usuário com as corretas
+                
+                if(validationAnswers){ 
+                    //$(this.el).append("")
+                    $(this.el).removeClass('alert alert-error').addClass('alert alert-success');
+                }else{
+                    $(this.el).removeClass('alert alert-success').addClass('alert alert-error');
+                }
+                
+
+            },
+
+            getTimer: function(value){
+                milliSecs = value;
+
+                msSecs = (1000);
+                msMins = (msSecs * 60);
+                msHours = (msMins * 60);
+                numHours = Math.floor(milliSecs/msHours);
+                numMins = Math.floor((milliSecs - (numHours * msHours)) / msMins);
+                numSecs = Math.floor((milliSecs - (numHours * msHours) - (numMins * msMins))/ msSecs);
+
+
+                if (numSecs < 10){
+                  numSecs = "0" + numSecs.toString();
+                }
+                if (numMins < 10){
+                  numMins = "0" + numMins.toString();
+                }
+                if (numHours < 10){
+                  numHours = "0" + numHours.toString();
+                }
+
+                resultString = (numHours > 0) ? numHours + ":" + numMins + ":" + numSecs : numMins + ":" + numSecs ;
+
+                return resultString;
+            }
+        });
+
         var ClassView = Backbone.View.extend({
             el: $('#main-content'),
 
@@ -57,17 +127,14 @@ define(['jquery',
                 $(this.el).html(self.classTemplate(data));
                 self.embedPlayer();
 
-                self.renderTopic(self.topicsCollection.models[1]);
+                self.renderTopic(1);
                 return this;
             },
 
-            renderTopic: function(topic){
+            renderTopic: function(key){
                 var self = this;
-                topic.set('time', self.getTimer(topic.get('time')));
-                var type = topic.get('type');
-                var template = _.template($("#template-timeline-" + type).html());
-                
-                $(this.el).after(template(topic.toJSON()));
+                var tView = new TopicView({model:self.topicsCollection.models[key]});
+                $("#box-metadata").after(tView.render().el);
 
 
             },
@@ -81,31 +148,7 @@ define(['jquery',
                 box.appendChild(playerEmbed);
             },
 
-            getTimer: function(value){
-                milliSecs = value;
-
-                msSecs = (1000);
-                msMins = (msSecs * 60);
-                msHours = (msMins * 60);
-                numHours = Math.floor(milliSecs/msHours);
-                numMins = Math.floor((milliSecs - (numHours * msHours)) / msMins);
-                numSecs = Math.floor((milliSecs - (numHours * msHours) - (numMins * msMins))/ msSecs);
-
-
-                if (numSecs < 10){
-                  numSecs = "0" + numSecs.toString();
-                }
-                if (numMins < 10){
-                  numMins = "0" + numMins.toString();
-                }
-                if (numHours < 10){
-                  numHours = "0" + numHours.toString();
-                }
-
-                resultString = (numHours > 0) ? numHours + ":" + numMins + ":" + numSecs : numMins + ":" + numSecs ;
-
-                return resultString;
-            }
+            
         }); 
         
     
