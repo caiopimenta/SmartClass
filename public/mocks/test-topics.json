@@ -38,7 +38,7 @@
 		"content": {
 			"title": "Soluções Samba",
 			"description": "",
-			"url": "localhost:3000/images/solucao.png"
+			"url": "http://localhost:3000/images/solucao.png"
 		}
 	
 	},
@@ -75,12 +75,12 @@
 	},
 	{
 		"id": 7,
-		"time": "1100000",
+		"time": "110000",
 		"type": "image",
 		"content": {
 			"title": "Clientes Samba",
 			"description": "",
-			"url": "localhost:3000/images/clientes.png"
+			"url": "http://localhost:3000/images/clientes.png"
 		}
 	
 	},
@@ -91,7 +91,7 @@
 		"content": {
 			"title": "Sobre a Samba",
 			"description": "",
-			"url": "localhost:3000/images/sobre.png"
+			"url": "http://localhost:3000/images/sobre.png"
 		}
 	
 	},
@@ -102,7 +102,7 @@
 		"content": {
 			"title": "Ambiente a Samba",
 			"description": "",
-			"url": "localhost:3000/images/ambiente.png"
+			"url": "http://localhost:3000/images/ambiente.png"
 		}
 	
 	},
@@ -113,7 +113,7 @@
 		"content": {
 			"title": "Badges",
 			"description": "",
-			"url": "localhost:3000/images/trofeu.png"
+			"url": "http://localhost:3000/images/trofeu.png"
 		}
 	
 	}
