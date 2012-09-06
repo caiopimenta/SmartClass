@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"time": "20000",
+		"time": "350000",
 		"type": "radio",
 		"content": {
 			"question": "O que representa um ambiente descontraído na Samba?",
@@ -17,7 +17,7 @@
 	},
 	{
 		"id": 2,
-		"time": "40000",
+		"time": "250000",
 		"type": "check",
 		"content": {
 			"question": "Quais os primeiros prêmios que a Samba ganhou?",
@@ -33,18 +33,18 @@
 	},
 	{
 		"id": 3,
-		"time": "60000",
+		"time": "90000",
 		"type": "image",
 		"content": {
-			"title": "Imagem de exemplo",
-			"description": "descrição exemplo da imagem",
-			"url": "https://www.google.com.br/images/srpr/logo3w.png"
+			"title": "Soluções Samba",
+			"description": "",
+			"url": "localhost:3000/images/solucao.png"
 		}
 	
 	},
 	{
 		"id": 4,
-		"time": "80000",
+		"time": "130000",
 		"type": "text",
 		"content": {
 			"html": "<h3>Saiba mais sobre o MIT</h3><p><a href=\"http://web.mit.edu/\" target=\"_blank\">Instituto de Tecnologia de Massachusetts</a></p>"
@@ -53,7 +53,7 @@
 	},
 	{
 		"id": 5,
-		"time": "80000",
+		"time": "160000",
 		"type": "text",
 		"content": {
 			"html": "<h3>Saiba mais sobre a FIR</h3><p><a href=\"http://www.fircapital.com/fircapital/web/default_pti.asp?idioma=0&conta=45\" target=\"_blank\">FIR Capital</a></p>"
@@ -62,7 +62,7 @@
 	},
 	{
 		"id": 6,
-		"time": "20000",
+		"time": "441000",
 		"type": "radio",
 		"content": {
 			"question": "Você acha que essa ferramenta pode melhorar a experiência do aluno de EAD?",
@@ -72,5 +72,49 @@
 			],
 			"correct_answser": ["Sim"]
 		}
+	},
+	{
+		"id": 7,
+		"time": "1100000",
+		"type": "image",
+		"content": {
+			"title": "Clientes Samba",
+			"description": "",
+			"url": "localhost:3000/images/clientes.png"
+		}
+	
+	},
+	{
+		"id": 8,
+		"time": "220000",
+		"type": "image",
+		"content": {
+			"title": "Sobre a Samba",
+			"description": "",
+			"url": "localhost:3000/images/sobre.png"
+		}
+	
+	},
+	{
+		"id": 9,
+		"time": "260000",
+		"type": "image",
+		"content": {
+			"title": "Ambiente a Samba",
+			"description": "",
+			"url": "localhost:3000/images/ambiente.png"
+		}
+	
+	},
+	{
+		"id": 10,
+		"time": "386000",
+		"type": "image",
+		"content": {
+			"title": "Badges",
+			"description": "",
+			"url": "localhost:3000/images/trofeu.png"
+		}
+	
 	}
 ]
