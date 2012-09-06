@@ -11,4 +11,8 @@ body {
 	margin: -12px 0 0 -12px;
 }
 
-.topic {box-sizing: border-box;}
+.form-answers {
+	box-sizing: border-box;
+	width: 100%;
+	float: left;
+}

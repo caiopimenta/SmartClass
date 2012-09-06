@@ -10,7 +10,7 @@ define(['jquery',
             
             tagName: "article",
 
-            className: "span5 topic alert-block",
+            className: "topic",
 
             initialize: function(params) {
                 //this.updateData(); 
@@ -30,6 +30,8 @@ define(['jquery',
                 self.model.set('time', self.getTimer(self.model.get('time')));
                 $(this.el).html(self.template(self.model.toJSON()));
 
+                
+
                 if(type == "radio" || type == "check") window.playerModel.pause();
 
                 return this;
@@ -44,22 +46,21 @@ define(['jquery',
                 var validationAnswers = _.isEqual(userAnswers, correctAnswers); //compara as respostas do usuário com as corretas
                 
                 if(validationAnswers){ 
-                    $(this.el).append("")
-                    $(this.el).removeClass('alert alert-error').addClass('alert alert-success');
+                    $('form', this.el).removeClass('alert alert-error').addClass('alert alert-success');
                     $('.bt-answer', this.el).addClass('hidden');
                     $('.bt-continue', this.el).removeClass('hidden');
-                    $('input', this.el).addClass('uneditable-input').attr({'disabled':'disabled'});
-                    window.playerModel.play();
+                    $('input', this.el).addClass('uneditable-input').attr({'disabled':'disabled'});                    
                 }else{
-                    $(this.el).removeClass('alert alert-success').addClass('alert alert-error');
+                    $('form', this.el).removeClass('alert alert-success').addClass('alert alert-error');
                 }
                 
 
             },
 
             nextStep: function(){
-
-                console.info("next step");
+                $('form', this.el).removeClass('alert alert-success').addClass('alert alert-info');
+                $('.bt-continue', this.el).addClass('hidden');
+                window.playerModel.play();
             },
 
             getTimer: function(value){
@@ -87,10 +88,12 @@ define(['jquery',
 
                 return resultString;
             }
+            
+
         });
 
         var ClassView = Backbone.View.extend({
-            el: $('#main-content'),
+            el: $('#box-metadata'),
 
             classTemplate: _.template($("#template-class").html()),
 
@@ -134,7 +137,7 @@ define(['jquery',
                 $('#main-container div.box-loader').addClass('hidden');
                 $('#service-down, #main-container div.error-message').removeClass('hidden');
                 $("#main-container div.warning-message").addClass("hidden").hide();
-                console.info("error");
+                //console.info("error");
             },
 
             render: function() {
@@ -144,16 +147,16 @@ define(['jquery',
                 $(this.el).html(self.classTemplate(data));
                 self.embedPlayer();
 
-                self.renderTopic(1);
                 return this;
             },
 
             renderTopic: function(key){
                 var self = this;
-                var tView = new TopicView({model:self.topicsCollection.models[key]});
-                $("#box-metadata").after(tView.render().el);
-            },
+                var answerModel = self.topicsCollection.models[key];
+                var tView = new TopicView({model:answerModel});
+                $("#box-answers h2").after(tView.render().el);
 
+            },
             embedPlayer: function(){
                 var self = this;
                 

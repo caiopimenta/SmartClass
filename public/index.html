@@ -58,29 +58,33 @@
         <img src="../images/ajax-loader.gif">
       </div>
       <div id="main-content" class="row">  
-
+        <aside id="box-metadata" class="span7">
+        </aside>
+        <section id="box-answers" class="span5">
+          <h2>Linha do tempo</h2>
+        </section>
       </div>
     </div> <!-- /container -->
 
     <script type="text/template" id="template-class">
-        <aside id="box-metadata" class="span7">
+        
           <h2>{{title}}</h2>
           <section id="box-video"></section>
           <h3>Professor: {{teacher}}</h3>
           <p>{{description}}</p>
-        </aside>
+        
         
     </script>
     <script type="text/template" id="template-timeline-text">
-        <div class="text">
-        
+        <hr>
+        <div class="text">        
             <data class="label label-info pull-right">{{time}}</data>
-            {{content.html}}
+            {{ content.html }}
         </div>
     </script>
     <script type="text/template" id="template-timeline-image">
-        <div class="image">
-          
+        <hr>
+        <div class="image alert-block">          
             <data class="label label-info pull-right">{{time}}</data>
             <h3>{{content.title}}</h3>
             <figure>
@@ -90,7 +94,8 @@
         </div>
     </script>
     <script type="text/template" id="template-timeline-check">
-        <div class="question">
+      <hr>
+        <div class="question alert-block">
         
             <data class="label label-info pull-right">{{time}}</data>
             <h3>{{content.question}}</h3>
@@ -101,13 +106,13 @@
                 {{value}}
               </label>
               {[});]}
-              <button type="button" class="btn bt-answer">Responder</button>
-              <button type="button" class="btn btn-primary bt-continue hidden">Continuar aula</button>
+              <button type="button" class="btn bt-answer pull-right">Responder</button>
+              <button type="button" class="btn btn-primary bt-continue hidden pull-right">Continuar aula</button>
             </form>
         </div>
     </script>
     <script type="text/template" id="template-timeline-radio">
-        <div class="question">
+        <div class="question alert-block">
         
             <data class="label label-info pull-right">{{time}}</data>
             <h3>{{content.question}}</h3>
@@ -118,8 +123,8 @@
                 {{value}}
               </label>
               {[});]}
-              <button type="button" class="btn bt-answer">Responder</button>
-              <button type="button" class="btn btn-primary bt-continue hidden">Continuar aula</button>
+              <button type="button" class="btn bt-answer pull-right">Responder</button>
+              <button type="button" class="btn btn-primary bt-continue hidden pull-right">Continuar aula</button>
             </form>
         </div>
     </script>

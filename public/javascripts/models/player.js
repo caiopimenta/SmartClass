@@ -31,7 +31,7 @@ define(['backbone'], function(Backbone){
 			 		this.checkPlayer();
 			 		break;
 			 	default: 
-			 		console.info(name); 
+			 		//console.info(name); 
 			 		break; 
 			} 
 	    },
@@ -51,7 +51,7 @@ define(['backbone'], function(Backbone){
 		checkPlayer: function() {
 			var self = this;
 			this.timeout = setTimeout(function() { 
-				console.info(self.player.getCurrentTime());
+				//console.info(self.player.getCurrentTime());
 				var pct = self.player.getCurrentTime();
 				var view = self.view;
 
