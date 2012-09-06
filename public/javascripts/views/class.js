@@ -154,7 +154,7 @@ define(['jquery',
                 var self = this;
                 var answerModel = self.topicsCollection.models[key];
                 var tView = new TopicView({model:answerModel});
-                $("#box-answers h2").after(tView.render().el);
+                $("#box-answers > h2").after(tView.render().el);
 
             },
             embedPlayer: function(){
