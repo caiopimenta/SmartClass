@@ -4,15 +4,15 @@
 		"time": "20000",
 		"type": "radio",
 		"content": {
-			"question": "Quais as cores da bandeira do cruzeiro?",
+			"question": "O que representa um ambiente descontraído na Samba?",
 			"answers": [
-				"verde e amarelo",
-				"azul e preto",
-				"preto e branco",
-				"azul e branco",
-				"nenhuma das opções"
+				"Uso de terno e gravata",
+				"Ser em Belo Horizonte",
+				"Paredes coloridas",
+				"Ser uma empresa de TI",
+				"Baias individuais"
 			],
-			"correct_answser": ["azul e branco"]
+			"correct_answser": ["Paredes coloridas"]
 		}
 	},
 	{
@@ -20,15 +20,15 @@
 		"time": "40000",
 		"type": "check",
 		"content": {
-			"question": "Quais as cores da bandeira do cruzeiro?",
+			"question": "Quais os primeiros prêmios que a Samba ganhou?",
 			"answers": [
-				"verde e amarelo",
-				"azul e preto",
-				"preto e branco",
-				"azul",
-				"branco"
+				"Red Herring",
+				"Nobel",
+				"Empreendedores de Sucesso (PEGN)",
+				"Oscar",
+				"American Idol"
 			],
-			"correct_answser": ["azul","branco"]
+			"correct_answser": ["Red Herring","Empreendedores de Sucesso (PEGN)"]
 		}
 	},
 	{
@@ -47,8 +47,30 @@
 		"time": "80000",
 		"type": "text",
 		"content": {
-			"html": "<h3>Título hispter</h3><p>Squid viral mollit put a bird on it, accusamus ennui helvetica fixie <a href=\"http://www.polaroid.com\" target=\"_blank\">polaroid.</a></p><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Sed sit amet ante non ipsum facilisis pulvinar.</li><li>Vivamus ac lacus id nisi ultrices porta in non nibh.</li><li>Fusce venenatis odio eget mauris fermentum nec sollicitudin neque fermentum.</li></ul>"
+			"html": "<h3>Saiba mais sobre o MIT</h3><p><a href=\"http://web.mit.edu/\" target=\"_blank\">Instituto de Tecnologia de Massachusetts</a></p>"
 		}
 	
+	},
+	{
+		"id": 5,
+		"time": "80000",
+		"type": "text",
+		"content": {
+			"html": "<h3>Saiba mais sobre a FIR</h3><p><a href=\"http://www.fircapital.com/fircapital/web/default_pti.asp?idioma=0&conta=45\" target=\"_blank\">FIR Capital</a></p>"
+		}
+	
+	},
+	{
+		"id": 6,
+		"time": "20000",
+		"type": "radio",
+		"content": {
+			"question": "Você acha que essa ferramenta pode melhorar a experiência do aluno de EAD?",
+			"answers": [
+				"Sim",
+				"Não"
+			],
+			"correct_answser": ["Sim"]
+		}
 	}
 ]
