@@ -46,12 +46,13 @@ define(['jquery',
                 var validationAnswers = _.isEqual(userAnswers, correctAnswers); //compara as respostas do usuário com as corretas
                 
                 if(validationAnswers){ 
-                    $('form', this.el).removeClass('alert alert-error').addClass('alert alert-success');
+                    $('form', this.el).removeClass('alert alert-error').addClass('alert alert-info');
                     $('.bt-answer', this.el).addClass('hidden');
-                    $('.bt-continue', this.el).removeClass('hidden');
+                    window.playerModel.play();
+                    //$('.bt-continue', this.el).removeClass('hidden');
                     $('input', this.el).addClass('uneditable-input').attr({'disabled':'disabled'});                    
                 }else{
-                    $('form', this.el).removeClass('alert alert-success').addClass('alert alert-error');
+                    $('form', this.el).removeClass('alert alert-info').addClass('alert alert-error');
                 }
                 
 
